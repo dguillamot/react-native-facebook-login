@@ -39,6 +39,8 @@ public class FacebookLoginModule extends ReactContextBaseJavaModule {
     private final String CALLBACK_TYPE_ERROR = "error";
     private final String CALLBACK_TYPE_CANCEL = "cancel";
 
+    public static final int REQUEST_CODE = 81000;
+    
     private Context mActivityContext;
     private CallbackManager mCallbackManager;
     private Callback mTokenCallback;
@@ -49,7 +51,7 @@ public class FacebookLoginModule extends ReactContextBaseJavaModule {
 
         mActivityContext = activityContext;
 
-        FacebookSdk.sdkInitialize(activityContext.getApplicationContext());
+        FacebookSdk.sdkInitialize(activityContext.getApplicationContext(), REQUEST_CODE);
 
         mCallbackManager = CallbackManager.Factory.create();
 
